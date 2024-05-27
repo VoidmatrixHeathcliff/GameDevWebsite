@@ -2,8 +2,8 @@
 title: 你好，世界
 date: 2024-05-27
 updated: 2024-05-27
-permalink: articles/Voidmatrix/HelloWorld/
-categories: Voidmatrix
+permalink: articles/Demo/HelloWorld/
+categories: Demo
 tags: [游戏开发]
 ---
 
@@ -13,6 +13,6 @@ tags: [游戏开发]
 
 <div style="text-align:center">
 
-![alt text](articles/Voidmatrix/HelloWorld/avatar.png)
+![ICON](articles/Demo/HelloWorld/avatar.png)
 
 </div>

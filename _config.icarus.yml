@@ -271,9 +271,7 @@ widgets:
         type: links
         # Names and URLs of the sites
         links:
-            Voidmatrix's Blog: https://www.voidmatrix.work/
-            hsz's Blog: https://www.hszsoft.com/
-            zExNocs's Blog: https://zexnocs.github.io/
+            Voidmatrix: https://www.voidmatrix.work/
     # Recent posts widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
