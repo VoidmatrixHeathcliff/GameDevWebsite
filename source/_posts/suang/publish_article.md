@@ -1,3 +1,12 @@
+---
+title: suang
+date: 2024-05-28
+update: 2024-05-28
+permalink: articles/suang/Demo/
+categories: suang
+tags: [发表文章]
+---
+
 # VoidGameSpace发文章的一种方式
 
 #### 一、需要的工具：
