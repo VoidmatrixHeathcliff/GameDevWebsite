@@ -1,8 +1,9 @@
+---
 title: mytest
 date: 2024-05-28
 updated: 2024-05-28
-permalink: articles/Demo/HelloWorld/
-categories: Demo
+permalink: articles/Demo/Touyouta/
+categories: Touyouta
 tags: [游戏开发]
 ---
 
