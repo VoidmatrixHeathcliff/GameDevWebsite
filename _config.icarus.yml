@@ -272,6 +272,7 @@ widgets:
         # Names and URLs of the sites
         links:
             Voidmatrix: https://www.voidmatrix.work/
+            zExNocs: https://zexnocs.github.io/
     # Recent posts widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
@@ -353,7 +354,7 @@ plugins:
         site_id: 
     # Enable the KaTeX math typesetting support
     # https://katex.org/
-    katex: false
+    katex: true
     # Enable the MathJax math typesetting support
     # https://www.mathjax.org/
     mathjax: false
