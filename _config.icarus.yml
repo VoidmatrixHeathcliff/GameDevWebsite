@@ -272,6 +272,7 @@ widgets:
         # Names and URLs of the sites
         links:
             Voidmatrix: https://www.voidmatrix.work/
+            zExNocs: https://zexnocs.github.io/
     # Recent posts widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
