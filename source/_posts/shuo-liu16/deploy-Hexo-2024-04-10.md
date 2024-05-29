@@ -2,7 +2,7 @@
 title: 博客第一步：将Hexo部署在GitHub上
 # author: shuo-liu16
 date: 2024-4-10
-permalink: articles/shuo-liu16/
+permalink: articles/shuo-liu16/deploy-hexo/
 categories: shuo-liu16
 tags: hexo
 ---
@@ -86,9 +86,9 @@ More info: [hexo](https://hexo.io/zh-cn/)
 b.编辑你的 _config.yml
 
 第一处
-![image](images/2024-04-10/1.png)
+![ICON](articles/shuo-liu16/deploy-hexo/1.png)
 第二处
-![image](images/2024-04-10/2.png)
+![ICON](articles/shuo-liu16/deploy-hexo/2.png)
 
 c.在博客文件夹下打开终端执行以下命令
 
