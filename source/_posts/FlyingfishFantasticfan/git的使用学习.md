@@ -1,14 +1,14 @@
 ---
 title: Git使用方法学习
 date: 2024-05-29
-updated: 2024-05-29
+updated: 2024-05-30
 permalink: articles/FlyingfishFantasticfan/Git学习记录
 categories: FlyingfishFantasticfan
-tags: [Git][学习]
+tags: [Git][学习][自我介绍]
 ---
 
 
-这篇文章既是记录Git的学习过程，同时也是markdown的练习，操作系统为Win11。
+这篇文章既是记录Git的学习过程，同时也是markdown的练习，操作系统为Win11，文章末尾有自我介绍。
 
 ## Git的安装和初始化配置
 1. 安装Git，[Git下载连接](https://git-scm.com/download),根据自己的操作系统进行选择，下载后运行exe文件，我下载选项暂时全部都选择默认
