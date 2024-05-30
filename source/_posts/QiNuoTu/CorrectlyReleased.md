@@ -51,7 +51,7 @@ permalink: 不太好理解，不用担心，请往下看，
 这样一来，文章头就准备完毕了。
 ![ICON](articles/QiNuoTu/CorrectlyReleased/14.png)
 # 第五步，编写文章！
-- **1**: 在上面的截图可以注意到，文章头下面有一些白字，没错，这个可以当作简介，或者先到言，具体的文章内容需要在，<!-- More --> 标记下书写
+- **1**: 在上面的截图可以注意到，文章头下面有一些白字，没错，这个可以当作简介，或者先到言，具体的文章内容需要在，` <!-- More --> ` 标记下书写
 ![ICON](articles/QiNuoTu/CorrectlyReleased/15.png)
 - **2**: 如何添加图片，在文章旁边使用同名创建一个文件夹。
 ![ICON](articles/QiNuoTu/CorrectlyReleased/16.png)
