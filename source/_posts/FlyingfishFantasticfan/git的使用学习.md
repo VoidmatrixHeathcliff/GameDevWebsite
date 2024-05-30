@@ -2,7 +2,7 @@
 title: Git使用方法学习
 date: 2024-05-29
 updated: 2024-05-30
-permalink: articles/FlyingfishFantasticfan/Git学习记录
+permalink: articles/FlyingfishFantasticfan/Git学习记录/
 categories: FlyingfishFantasticfan
 tags: [Git,学习,自我介绍]
 ---
