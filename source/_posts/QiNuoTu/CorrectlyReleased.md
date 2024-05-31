@@ -31,7 +31,7 @@ tags: [教程]
 在点击，_posts，文件夹
 ![ICON](articles/QiNuoTu/CorrectlyReleased/8.png)
 这里会有一大堆别人的文件夹，不需要管理。
-![ICON](articles/QiNuoTu/CorrectlyReleased/8.png)
+![ICON](articles/QiNuoTu/CorrectlyReleased/9.png)
 # 第四步，准备文章！
 此刻，网页上的操作已经完成，回到本地，用自己的名字创建一个文件夹。
 ## 自己的名字！，不要抄我的名字！
@@ -51,14 +51,14 @@ permalink: 不太好理解，不用担心，请往下看，
 这样一来，文章头就准备完毕了。
 ![ICON](articles/QiNuoTu/CorrectlyReleased/14.png)
 # 第五步，编写文章！
-- **1**: 在上面的截图可以注意到，文章头下面有一些白字，没错，这个可以当作简介，或者先到言，具体的文章内容需要在，<!-- More --> 标记下书写
+- **1**: 在上面的截图可以注意到，文章头下面有一些白字，没错，这个可以当作简介，或者先到言，具体的文章内容需要在，` <!-- More --> ` 标记下书写
 ![ICON](articles/QiNuoTu/CorrectlyReleased/15.png)
 - **2**: 如何添加图片，在文章旁边使用同名创建一个文件夹。
 ![ICON](articles/QiNuoTu/CorrectlyReleased/16.png)
-- **3**: 将图片丢进文件夹中，就可以使用，![ICON](articles/自己名称文件夹名/文件夹名/文件名.后缀名)表达式引用图片了。
+- **3**: 将图片丢进文件夹中，就可以使用，`![ICON](articles/自己名称文件夹名/文件夹名/文件名.后缀名)`表达式引用图片了。
 ![ICON](articles/QiNuoTu/CorrectlyReleased/17.png)
-- **4**: 网页链接同理，[名称](链接)，表达式，即可。
-- **5**: 置入代码，只需要使用，```cpp 代码 ``` 将代码包裹其中即可。
+- **4**: 网页链接同理，`[名称](链接)`，表达式，即可。
+- **5**: 置入代码，只需要使用，` ```cpp 代码 ``` `将代码包裹其中即可。
 # 第六步，发表文章。
 - **1**: 回到网页，那一堆名字的文件夹的页面，点击右上角的，上传文件。
 ![ICON](articles/QiNuoTu/CorrectlyReleased/18.png)
