@@ -7,7 +7,7 @@ categories: QiNuoTu
 tags: [闲聊]
 ---
 琪诺兔是一种幻想生物，他十分可爱，o( ?_? )o/
-![ICON](articles/QiNuoTu/Iamme/1.png)
+![ICON](articles/QiNuoTu/Iamme/1.jpg)
 <!-- More -->
 —
 
