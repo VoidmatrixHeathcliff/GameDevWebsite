@@ -304,7 +304,7 @@ struct Boid
     float separation_distance = 50.0f;      // 临近单位的分离距离
     float cohesion_weight = 1.0f;           // "聚集" 规则强度
     float separation_weight = 1.0f;         // "分离" 规则强度 
-    float align_weight = 1.0f;              // "对其" 规则强度
+    float align_weight = 1.0f;              // "对齐" 规则强度
     float max_speed = 5.0f;                 // 集群最大速度
 };
 
