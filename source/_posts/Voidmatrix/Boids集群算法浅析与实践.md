@@ -345,3 +345,9 @@ int main()
 ```
 
 > 使用三角形等有指向性的元素，根据当前速度向量绘图模拟效果会更加清晰。
+
+<div style="text-align:center">
+
+\>\>\>  [在 Voidmatrix's Blog 上查看本文章](https://www.voidmatrix.work/articles/boids-algorithm/)  <<<
+
+</div>
