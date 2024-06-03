@@ -13,7 +13,7 @@
 
 > 文档正在完善，欢迎提交补充……
 
-## 我该如何提交自己的文章？
+## 我该如何提交自己的文章？博客教程,参阅[保姆级！使用网页版在VoidGameSpace中发表文章与图文。Ciallo​～](https://www.voidgame.space/articles/QiNuoTu/CorrectlyReleased/)
 
 所有的文章均位于 [source/_posts](source/_posts) 目录下，拥有自己的命名空间是一个好习惯，这样不至于干扰到其他人的创作，所以如果你是首次在本站尝试提交自己的文章，应该仿照 [Demo](source/_posts/Demo) 目录使用自己的ID创建独一无二的目录，随后在新建的目录下放置自己的博客文章和与文章同名的资源目录。
 
