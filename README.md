@@ -15,8 +15,11 @@
 
 ## 我该如何提交自己的文章？
 
-### 第三方博客教程，可参阅[保姆级！使用网页版在VoidGameSpace中发表文章与图文。Ciallo​～](https://www.voidgame.space/articles/QiNuoTu/CorrectlyReleased/)
+### 第三方教程
+[保姆级！使用网页版在VoidGameSpace中发表文章与图文。Ciallo​～](https://www.voidgame.space/articles/QiNuoTu/CorrectlyReleased/)
+[使用GitHub Desktop在论坛中发表文章的方法及注意事项](https://www.voidgame.space/articles/suang/publish_article/)
 
+### 教程
 所有的文章均位于 [source/_posts](source/_posts) 目录下，拥有自己的命名空间是一个好习惯，这样不至于干扰到其他人的创作，所以如果你是首次在本站尝试提交自己的文章，应该仿照 [Demo](source/_posts/Demo) 目录使用自己的ID创建独一无二的目录，随后在新建的目录下放置自己的博客文章和与文章同名的资源目录。
 
 元数据的配置和编写实例详见：[Demo/HelloWorld.md](source/_posts/Demo/HelloWorld.md)
