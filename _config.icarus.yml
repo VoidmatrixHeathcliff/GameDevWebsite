@@ -275,7 +275,7 @@ widgets:
             Voidmatrix: https://www.voidmatrix.work/
             zExNocs: https://zexnocs.github.io/
             hszSoft: https://www.hszsoft.com/
-            QiNuoTu.bilibili: /https://space.bilibili.com/69720374
+            QiNuoTu.bilibili: https://space.bilibili.com/69720374
     # Recent posts widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
