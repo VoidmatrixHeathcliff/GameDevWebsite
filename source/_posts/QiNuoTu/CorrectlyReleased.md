@@ -1,7 +1,7 @@
 ---
 title: 保姆级！使用网页版在VoidGameSpace中发表文章与图文。Ciallo​～
 date: 2024-05-30
-updated: 2024-05-30
+updated: 2024-06-4
 permalink: articles/QiNuoTu/CorrectlyReleased/
 categories: QiNuoTu
 tags: [教程]
@@ -46,6 +46,7 @@ permalink: 不太好理解，不用担心，请往下看，
 它是这样的结构，permalink: articles/QiNuoTu/Demo/
 - **articles**: 可以理解为根目录，必须加上。
 - **QiNuoTu**: 这个是我的名字，一个示意，需要修改为你名字文件夹的名称。
+![ICON](articles/QiNuoTu/CorrectlyReleased/10.png)
 - **Demo**: 这个是你创建的当前文章的文件名，不要扩展名，但要加上，/，斜杠在尾部。
 ![ICON](articles/QiNuoTu/CorrectlyReleased/13.png)
 这样一来，文章头就准备完毕了。
@@ -58,7 +59,9 @@ permalink: 不太好理解，不用担心，请往下看，
 - **3**: 将图片丢进文件夹中，就可以使用，`![ICON](articles/自己名称文件夹名/文件夹名/文件名.后缀名)`表达式引用图片了。
 ![ICON](articles/QiNuoTu/CorrectlyReleased/17.png)
 - **4**: 网页链接同理，`[名称](链接)`，表达式，即可。
+![ICON](articles/QiNuoTu/CorrectlyReleased/27.png)
 - **5**: 置入代码，只需要使用，` ```cpp 代码 ``` `将代码包裹其中即可。
+![ICON](articles/QiNuoTu/CorrectlyReleased/28.png)
 # 第六步，发表文章。
 - **1**: 回到网页，那一堆名字的文件夹的页面，点击右上角的，上传文件。
 ![ICON](articles/QiNuoTu/CorrectlyReleased/18.png)
@@ -79,5 +82,8 @@ permalink: 不太好理解，不用担心，请往下看，
 ![ICON](articles/QiNuoTu/CorrectlyReleased/25.png)
 # 等待审核即可！
 ![ICON](articles/QiNuoTu/CorrectlyReleased/26.png)
+
+[关注我的哔哩哔哩走进我的生活](https://space.bilibili.com/69720374) [关注我的GitHub获得我的代码](https://github.com/QiNuoTu)
+
 # 这是什么？
 ![ICON](articles/QiNuoTu/CorrectlyReleased/123415231.png)
