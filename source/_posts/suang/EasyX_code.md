@@ -2,7 +2,7 @@
 title: 使用EasyX制作游戏需要读写文件时遇到编码问题的解决方法
 date: 2024-05-28
 update: 2024-06-04
-permalink: articles/suang/Aboutme/
+permalink: articles/suang/EasyX_code/
 categories: suang
 tags: [c++, 编码, EasyX]
 ---
