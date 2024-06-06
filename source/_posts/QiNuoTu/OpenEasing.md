@@ -8,12 +8,29 @@ tags: [游戏开发]
 ---
 在游戏或动画制作中，如何让一个对象或色彩等平滑过度，或在两个值之间平滑的自动分布一直以来是新人开发者的一大难题，很多同学没有那么多时间去寻找公式并将他们逐一实现，没关系已经有前人为我们铺好了路。[Easing](https://easings.net/zh-cn)，
 ![ICON](articles/QiNuoTu/OpenEasing/OpenEasing.png)
-网站中为我们实现了一系列用于时间缓动的函数与公式，但它并不是C++的，对于超级新手也不太容易使用，于是我花了一些时间对其中的实现进行了一些翻译为C++，且比例的概念可能有些困扰，在以下的实现中，我将他们重新封装为，提供四个参数的版本。
-- **begin_**: 当前时间&当前是第几段&当前位置，无需担心会被自动计算为比例。
-- **start**: 开始值&开始时间&开始位置，等。
-- **end**: 结束值&结束时间&结束位置，等。
-- **percent_**: 将开始与结束之间分为多少段。
+网站中为我们实现了一系列用于时间缓动的函数与公式，但它并不是C++的，对于超级新手也不太容易使用，于是我花了一些时间对其中的实现进行了一些翻译为C++.
 <!-- More -->
+<div align="center">
+    <p align="center">
+        <img src="articles/QiNuoTu/icon.png" alt="logo" width="200">
+    </p>
+    <h1>琪诺兔</h1>
+    <p>
+        <a href="https://space.bilibili.com/69720374" target="_blank">关注我的哔哩哔哩走进我的生活</a>
+        &nbsp;|&nbsp;
+        <a href="https://github.com/QiNuoTu" target="_blank">关注我的GitHub获得我的代码</a>
+    </p>
+</div>
+
+比例的概念可能有些困扰，在以下的实现中，我将他们重新封装为，提供四个参数的版本。
+> **begin_**: 当前时间&当前是第几段&当前位置，无需担心会被自动计算为比例。
+> 
+> **start**: 开始值&开始时间&开始位置，等。
+> 
+> **end**: 结束值&结束时间&结束位置，等。
+> 
+> **percent_**: 将开始与结束之间分为多少段。
+
 ```cpp
 int main() {
     // 示例
@@ -322,5 +339,5 @@ double Punch(double _progress, double _start, double _end, double _segments) {
     return _end * pow(2, -10 * percents) * sin((percents - _s) * 2 * M_PI / _p);
 }
 ```
-这是什么！
+# 这是什么！
 ![ICON](articles/QiNuoTu/OpenEasing/-1e69599c03b67f3a.jpg)

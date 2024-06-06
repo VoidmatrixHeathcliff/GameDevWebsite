@@ -9,6 +9,18 @@ tags: [教程,游戏开发]
 在2D游戏开发中，摄像机是一个至关重要的组件，允许开发者控制玩家的视角，决定他们能看到游戏世界的哪些部分。这对于引导玩家的注意力和提供沉浸式体验非常重要，在战斗场景中聚焦于战斗区域；而在探索场景中扩大视野以展示更多的环境细节，跟随主要角色移动，确保玩家始终能够看到控制中的角色和周围的环境，将摄像机焦点对准可交互对象，用来提示玩家这些对象的存在和重要性，还可以用来实现特殊效果，如震动或动态缩放等，在下文中我们将会实现这样一个摄像机类用于自己的游戏。
 ![ICON](articles/QiNuoTu/Camera2D/1.gif)
 <!-- More -->
+<div align="center">
+    <p align="center">
+        <img src="articles/QiNuoTu/icon.png" alt="logo" width="200">
+    </p>
+    <h1>琪诺兔</h1>
+    <p>
+        <a href="https://space.bilibili.com/69720374" target="_blank">关注我的哔哩哔哩走进我的生活</a>
+        &nbsp;|&nbsp;
+        <a href="https://github.com/QiNuoTu" target="_blank">关注我的GitHub获得我的代码</a>
+    </p>
+</div>
+
 ## 一个合格的摄像机应该具有以下功能。
     本人习惯已屏幕中心为基准处理数据，并且正向使用坐标，所有以下实现已本人使用舒适维主进行实现，我们来弄一些碎片吧。
 - **视口控制：**设置视口大小适应不同的分辨率和屏幕尺寸。
@@ -260,8 +272,6 @@ private:
     float Zoom, WorldBoundaryLeft, WorldBoundaryTop, WorldBoundaryRight, WorldBoundaryBottom;
 };
 ```
-## 文档以及更新请追溯我的GitHub
-[关注我的哔哩哔哩走进我的生活](https://space.bilibili.com/69720374) [关注我的GitHub获得我的代码](https://github.com/QiNuoTu)
 
 ## 这是什么?
 ![ICON](articles/QiNuoTu/Camera2D/2.png)

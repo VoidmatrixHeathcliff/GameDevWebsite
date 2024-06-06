@@ -7,12 +7,20 @@ categories: QiNuoTu
 tags: [闲聊]
 ---
 琪诺兔是一种幻想生物，他十分可爱，o( ?_? )o/
-![ICON](articles/QiNuoTu/Iamme/1.jpg)
 <!-- More -->
-—
+<div align="center">
+    <p align="center">
+        <img src="articles/QiNuoTu/icon.png" alt="logo" width="200">
+    </p>
+    <h1>琪诺兔</h1>
+    <p>
+        <a href="https://space.bilibili.com/69720374" target="_blank">关注我的哔哩哔哩走进我的生活</a>
+        &nbsp;|&nbsp;
+        <a href="https://github.com/QiNuoTu" target="_blank">关注我的GitHub获得我的代码</a>
+    </p>
+</div>
 
-[琪诺兔的哔哩哔哩](https://space.bilibili.com/69720374)[琪诺兔的GitHub](https://github.com/QiNuoTu)琪诺兔不更新.mp3
+![ICON](articles/QiNuoTu/Iamme/1.jpg)
 
-—  
 #这是什么？
 ![ICON](articles/QiNuoTu/Iamme/2.png)
