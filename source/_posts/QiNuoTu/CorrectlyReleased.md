@@ -95,7 +95,5 @@ permalink: 不太好理解，不用担心，请往下看，
 # 等待审核即可！
 ![ICON](articles/QiNuoTu/CorrectlyReleased/26.png)
 
-[关注我的哔哩哔哩走进我的生活](https://space.bilibili.com/69720374) [关注我的GitHub获得我的代码](https://github.com/QiNuoTu)
-
 # 这是什么？
 ![ICON](articles/QiNuoTu/CorrectlyReleased/123415231.png)
