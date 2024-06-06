@@ -272,8 +272,6 @@ private:
     float Zoom, WorldBoundaryLeft, WorldBoundaryTop, WorldBoundaryRight, WorldBoundaryBottom;
 };
 ```
-## 文档以及更新请追溯我的GitHub
-[关注我的哔哩哔哩走进我的生活](https://space.bilibili.com/69720374) [关注我的GitHub获得我的代码](https://github.com/QiNuoTu)
 
 ## 这是什么?
 ![ICON](articles/QiNuoTu/Camera2D/2.png)
