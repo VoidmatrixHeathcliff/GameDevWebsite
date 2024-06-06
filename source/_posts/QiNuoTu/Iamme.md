@@ -10,7 +10,7 @@ tags: [闲聊]
 <!-- More -->
 <div align="center">
     <p align="center">
-        <img src="articles/QiNuoTu/icon.png" alt="logo" width="200">
+        <img src="/articles/QiNuoTu/icon.png" alt="logo" width="200">
     </p>
     <h1>琪诺兔</h1>
     <p>
