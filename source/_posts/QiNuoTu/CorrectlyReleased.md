@@ -9,6 +9,18 @@ tags: [教程]
 保姆级！保姆级！保姆级！Ciallo​～！
 每一步都有图文混合讲解！
 <!-- More -->
+<div align="center">
+    <p align="center">
+        <img src="articles/QiNuoTu/icon.png" alt="logo" width="200">
+    </p>
+    <h1>琪诺兔</h1>
+    <p>
+        <a href="https://space.bilibili.com/69720374" target="_blank">关注我的哔哩哔哩走进我的生活</a>
+        &nbsp;|&nbsp;
+        <a href="https://github.com/QiNuoTu" target="_blank">关注我的GitHub获得我的代码</a>
+    </p>
+</div>
+
 # 第一步，先分叉一个VoidGameSpace的原始库
 - **1**: 点击蓝字进入[VoidGameSpace](https://github.com/VoidmatrixHeathcliff/GameDevWebsite)。
 进入后，会看到这样的页面。
