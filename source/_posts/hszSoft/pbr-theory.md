@@ -7,8 +7,6 @@ permalink: articles/hszSoft/pbr/
 categories: hszSoft
 ---
 
-# 简介
-
 欢迎大家关注原文作者 hsz！原文地址：https://www.hszsoft.com/2024/04/30/pbr-theory/
 
 PBR(Physically Based Rendering)，基于物理的渲染，指的是一些基于现实的物理原理所构成的渲染技术的集合，而非单一的某一种光照算法。
