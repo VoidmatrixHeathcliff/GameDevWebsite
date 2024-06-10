@@ -2,10 +2,9 @@
 title: PBR 理论
 date: 2024-06-10
 update: 2024-06-10
-tags: [pbr]
-permalink: articles/hszSoft/pbr_theory/
+tags: [pbr, hszSoft]
+permalink: articles/hszSoft/pbr/
 categories: hszSoft
-tags: [hszSoft]
 ---
 
 # 简介
