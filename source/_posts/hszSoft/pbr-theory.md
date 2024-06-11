@@ -15,6 +15,8 @@ PBR(Physically Based Rendering)，基于物理的渲染，指的是一些基于�
 
 本文主要依据 LearnOpenGL 上的 PBR 理论篇，但在其中文版文章中有一些翻译问题，并且在理解上有一定难度，博主在这里对其进行了一定的简化。
 
+<!-- More -->
+
 # 为什么需要 PBR
 
 我们为什么需要 PBR？回想我一下们在 Phone 算法中的材质：
