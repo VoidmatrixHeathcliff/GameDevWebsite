@@ -9,6 +9,8 @@ categories: hszSoft
 
 欢迎大家关注原文作者 hsz！原文地址：https://www.hszsoft.com/2024/04/30/pbr-theory/
 
+# 简介
+
 PBR(Physically Based Rendering)，基于物理的渲染，指的是一些基于现实的物理原理所构成的渲染技术的集合，而非单一的某一种光照算法。
 
 本文主要依据 LearnOpenGL 上的 PBR 理论篇，但在其中文版文章中有一些翻译问题，并且在理解上有一定难度，博主在这里对其进行了一定的简化。
@@ -32,11 +34,11 @@ LearnOpenGL 的作者给出了一些 [特定的数据](http://devernay.free.fr/c
 
 粗糙度慢慢变大的话，它会表现的像下面这个样子：
 
-![roughness](roughness.gif)
+![roughness](articles/hszSoft/pbr-theory/roughness.gif)
 
 金属度慢慢变大的话，它会表现的像下面这个样子：
 
-![metallic](metallic.gif)
+![metallic](articles/hszSoft/pbr-theory/metallic.gif)
 
 就粗糙度的变化而言的话，我们已经可以想象出来，粗糙度越大，specular 和 shininess 都会相应地减小，diffuse 也会有相应的变化。那么，这里应该有一些处理 diffuse 和 specular 随着粗糙度的值的变化而变化的公式。这些公式的是怎么来的？
 
@@ -60,7 +62,7 @@ LearnOpenGL 的作者给出了一些 [特定的数据](http://devernay.free.fr/c
 
 粗糙度介于 0 到 1，刚才我们看到的变化类似于这样：
 
-![roughness](ndf.png)
+![roughness](articles/hszSoft/pbr-theory/ndf.png)
 
 ## 能量守恒 (Energy Conservation)
 
@@ -68,7 +70,7 @@ LearnOpenGL 的作者给出了一些 [特定的数据](http://devernay.free.fr/c
 
 当一束光碰到一个表面时，会分离成 `反射` 部分和 `折射` 部分。反射部分就是我们常说的镜面(Specular)光照，而折射部分就是我们所说的漫反射(Diffuse)光照。为什么折射部分是漫反射光照呢？因为我们这里做了个假设，折射光进入物体后的情况会很复杂，它会像这样：
 
-![surface_reaction](surface-reaction.png)
+![surface_reaction](articles/hszSoft/pbr-theory/surface-reaction.png)
 
 我们只考虑在物体的表面附近反射出来的，它们也就构成了漫反射光。对于那些深入了物体表面的部分，我们假设它们全部被吸收。现实的情况是确实有一部分光可能会在比较远的比方再次反射出来，一些被称为 `次表面散射(Subsurface Scattering)技术` 的着色器技术将这个问题考虑了进去，它们显著地提升了一些诸如皮肤，大理石或者蜡质这样材质的视觉效果，不过伴随而来的代价是性能的下降。
 
@@ -121,17 +123,17 @@ void main()
 
 现在我们需要一个遵循物理规则的 BRDF，这也有很多种实现，我们可以使用一种被称为 `Cook-Torrance BRDF` 的模型。Cook-Torrance BRDF 兼有漫反射和镜面反射两个部分：
 
-![brdf](ct-brdf.png)
+![brdf](articles/hszSoft/pbr-theory/ct-brdf.png)
 
 公式的左侧表示的是 lambertian 反射，用于表示漫反射的部分，用如下公式来表示：
 
-![lambertian](lambertian.png)
+![lambertian](articles/hszSoft/pbr-theory/lambertian.png)
 
 lambertian 中的 c 表示材质表面颜色，在我们的工作流中对应着 albedo 纹理，除以 π 是为了对漫反射光进行 `标准化`。
 
 公式的右侧是其镜面反射的部分，它的形式如下：
 
-![cook_torrance](cook-torrance.png)
+![cook-torrance](articles/hszSoft/pbr-theory/cook-torrance.png)
 
 和前面一样，分母依旧是用来进行 `标准化` 的。这里的字母 D、F、G 分别代表法线分布函数(Normal `D`istribution Function)，菲涅尔方程(`F`resnel Rquation)和几何函数(`G`eometry Function)。
 
@@ -141,7 +143,7 @@ lambertian 中的 c 表示材质表面颜色，在我们的工作流中对应着
 
 + `菲涅尔方程`：菲涅尔方程描述的是在不同的观察角度下被反射的光线所占的百分比。它一般就等于 Cook-Torrance BRDF 中的那个 kd。
 
-在我们的实现中，前两者通过粗糙度 α 计算出一个 float 值，
+在我们的实现中，前两者通过 `粗糙度` 计算出一个 float 值，而菲涅尔方程主要通过 `金属度` 计算出一个类型为 vec3 的颜色值。
 
 ### 法线分布函数
 
@@ -149,13 +151,13 @@ lambertian 中的 c 表示材质表面颜色，在我们的工作流中对应着
 
 NDF 接受 `法向量`、`半程向量`、`粗糙度` 为参数，返回一个 float 值。这里我们使用 Trowbridge-Reitz GGX：
 
-![tr-ggx](trowbridge-reitz-ggx.png)
+![trowbridge-reitz-ggx](articles/hszSoft/pbr-theory/trowbridge-reitz-ggx.png)
 
 在公式中 h 表示我们的半程向量，而 α 表示表面的粗糙度。
 
 当粗糙度很低（也就是说表面很光滑）的时候，与半程向量取向一致的微平面会高度集中在一个很小的半径范围内。由于这种集中性，NDF 最终会生成一个非常明亮的斑点。但是当表面比较粗糙的时候，微平面的取向方向会更加的随机。你将会发现与 h 向量取向一致的微平面分布在一个大得多的半径范围内，但是同时较低的集中性也会让我们的最终效果显得更加灰暗。
 
-![roughness](ndf.png)
+![roughness](articles/hszSoft/pbr-theory/ndf.png)
 
 它的 GLSL 代码实现如下：
 
@@ -178,23 +180,23 @@ float D_GGX_TR(vec3 N, vec3 H, float a)
 
 几何函数从统计学上近似的求得了微平面间相互遮蔽的比率，这种相互遮蔽会损耗光线的能量，最终导致材质表面整体显得更加灰暗。
 
-![geometry-shadowing](geometry-shadowing.png)
+![geometry-shadowing](articles/hszSoft/pbr-theory/geometry-shadowing.png)
 
 它接受 `观察方向向量`、`光线方向向量`、`法向量`、`粗糙度` 作为输入，最终返回一个 float 值。粗糙度越高的表面其微平面间相互遮蔽的概率就越高，这个 float 值就越小，这里我们使用 GGX 与 Schlick-Beckmann `近似` 的结合体，即 Schlick-GGX：
 
-![schlick-ggx](schlick-ggx.png)
+![schlick-ggx](articles/hszSoft/pbr-theory/schlick-ggx.png)
 
 这里 k 是 α 的 `重映射`，取决于我们要使用的是针对直接光照还是针对 IBL 光照的几何函数，我们暂时只介绍直接光照的重映射：
 
-![direct-remapping](direct-remapping.png)
+![direct-remapping](articles/hszSoft/pbr-theory/direct-remapping.png)
 
 材质表面自成阴影的分布情况同时和 `观察方向` 与 `光线方向` 有关，在刚才那张微平面的图中，我们可以注意到有些光线因为我们的观察方向比较特别而形成遮挡，我们称之为 `几何遮蔽(Geometry Obstruction)`，有些则和我们的观察方向无关，光线入射进来的时候就已经被遮挡了，我们称之为 `几何阴影(Geometry Shadowing)`。为了同时考虑二者的影响，我们使用 `史密斯法` 来进行计算：
 
-![smith-method](smith-method.png)
+![smith-method](articles/hszSoft/pbr-theory/smith-method.png)
 
 其中，Gsub 即为我们的 Schlick-GGX，如此计算，随着粗糙度的提高，材质表面的视觉效果如下：
 
-![geometry](geometry.png)
+![geometry](articles/hszSoft/pbr-theory/geometry.png)
 
 使用 GLSL 编写的实现如下：
 
@@ -224,23 +226,23 @@ float GeometrySmith(vec3 N, vec3 V, vec3 L, float k)
 
 当垂直观察时，任何材质表面都有一个 `基础反射率`，但是我们的观察角度慢慢与材质表面趋近于平行时，所有反光都会变得明显起来。想象一下，如果你站在湖边低头看脚下的水，你会发现水是透明的，反射并不强烈；如果你看远处的湖面，你会发现它们的反射特别强烈。如果从理想的 90° 进行观察，理论上所有平面都能完全反射光线。这种现象体现在了菲涅尔方程里，不过它的本体过于复杂，好在我们可以用 `Fresnel-Schlick` 近似法求得近似解：
 
-![fresnel-schlick](fresnel-schlick.png)
+![fresnel-schlick](articles/hszSoft/pbr-theory/fresnel-schlick.png)
 
 这个方程接受 `F0 (color)`、`观察方向向量`、`半程向量` 作为输入，最后返回一个 vec3 颜色值。其中，F0 表示垂直观察一个材质表面时的反射率，即基础反射率，它是一个颜色值，它可以通过材质的 `折射率` 预计算得出。经过这个方程的计算后，我们观察一个球体表面时可以注意到，我们越是朝球体边缘上看，反光越强：
 
-![fresnel](fresnel.png)
+![fresnel](articles/hszSoft/pbr-theory/fresnel.png)
 
 那为什么 F0 是一个 color 值而不是一个 float 值呢？你可以在现实中进行观察，对于非金属表面，它的高光是灯光的颜色，但如果是金属表面的话，它的高光会带一点它本来的颜色。比如对于黄金的话，它的高光也是金色的。
 
 那么，既然说到 F0 应该进行预计算，那么我们应该怎么算呢？对于非金属材质，我们可以使用这个公式：
 
-![calculate-reflectivity](calculate-reflectivity.png)
+![calculate-reflectivity](articles/hszSoft/pbr-theory/calculate-reflectivity.png)
 
 之所以可以用它来计算，是因为这里忽略掉了非金属材质的 `消光系数`，因为它相当小，而金属材质的消光系数是不能忽略的。
 
 那这意味着我们要对金属和非金属使用两套不同的公式来预计算出其 F0 吗？这有点麻烦，所以让我们来观察一下不同材质的基础反射率：
 
-![mbr](material-base-reflectivity.png)
+![material-base-reflectivity](articles/hszSoft/pbr-theory/material-base-reflectivity.png)
 
 在这里可以看到，所有非金属材质表面的基础反射率都不会高于 0.17，这实际上是`例外情况`而非普遍情况，对于它们，我们可以用 (0.04, 0.04, 0.04) 就可以得到足够好的结果了。然后，对于金属材质，我们需要添加一点其表面的纹理颜色来补充，这是因为金属表面会吸收所有的折射光线而没有漫反射，我们一般是这样实现的：
 
@@ -251,7 +253,7 @@ F0      = mix(F0, surfaceColor.rgb, metalness);
 
 这里引入了一个新的值，即 `金属度(metalness)`，用于描述一个材质表面是金属还是非金属的，也就是，它的 specular 是否带有原本材质的颜色。
 
-理论上来说，一个表面的金属度应该是二元的：要么是金属要么不是金属，不能两者皆是。但是，大多数的渲染管线都允许在0.0至1.0之间线性的调配金属度。这主要是由于材质纹理精度不足以描述一个拥有诸如细沙/沙状粒子/刮痕的金属表面。通过对这些小的类非金属粒子/刮痕调整金属度值，我们可以获得非常好看的视觉效果。
+理论上来说，一个表面的金属度应该是二元的：要么是金属要么不是金属，不能两者皆是。但是，大多数的渲染管线都允许在 0.0 至 1.0 之间线性的调配金属度。这主要是由于材质纹理精度不足以描述一个拥有诸如细沙/沙状粒子/刮痕的金属表面。通过对这些小的类非金属粒子/刮痕调整金属度值，我们可以获得非常好看的视觉效果。
 
 最后把我们插值得到的 F0 输入到 Fresnel-Schlick 的函数中即可，它的代码实现如下：
 
@@ -273,7 +275,7 @@ vec3 SchlickFresnel(float HdotV, vec3 F0)
 
 下面是一个比较经典的 PBR 渲染管线的纹理列表，还有它最终的视觉输出：
 
-![textures](textures.png)
+![textures](articles/hszSoft/pbr-theory/textures.png)
 
 其中，从左到右：
 
@@ -374,151 +376,31 @@ void main()
 
 把反射率方程 ReflectanceEquation 封装好之后，这份代码实际上和 Phone 看起来就会比较像了，不过需要注意一下结尾的把结果映射到 [HDR](https://learnopengl-cn.github.io/05%20Advanced%20Lighting/06%20HDR/) 和 [伽马矫正](https://learnopengl-cn.github.io/05%20Advanced%20Lighting/02%20Gamma%20Correction/) 的步骤，在这里不做过多赘述。 
 
-# IBL (基于图像的光照)
+# 结语
 
-在我们刚才的代码中，我们使用 vec3(0.03) 来提供环境光照，并在注释中说明了会使用 IBL 来对它进行替换。
+其实可以看到，PBR 最重要的东西便在于它的这个 BRDF，我们除了可以使用 Metallic-Roughness 来描述材质以外，行业内比较主流的方案还有 Specular-Glossiness 材质，这两种方案各有优缺点。实际上，只要愿意，我们可以用各种各样的参数去定义一个材质的属性，不过，迪士尼曾就这件事提出了它们自己的原则，即 Disney Principled BRDF，内容如下：
 
-你可以思考一下，目前来看，对于一个片段来说，不管是平行光、点光源还是聚光，它们实际上都只有一根光线照射过来，这虽然很真实了，但这结果并不够有趣。不过幸运的是，IBL 就是一个能让你瞬间提起兴趣的技术，它将一个环境立方体贴图上的每一个纹素视作一个光源并应用到我们的反射率方程中，使得我们的材质表面以不同的样子映射出周围环境的样子。
++ 应使用直观的参数，而不是物理类的晦涩参数（更符合艺术家的直觉）
++ 参数应尽可能少
++ 参数在其合理范围内应该为 0 到 1
++ 允许参数在有意义时超出正常的合理范围
++ 所有参数组合应尽可能健壮和合理
 
-那么我们应该怎么做呢？直接采样立方体贴图上的每一个纹素作为光源输入到 PBR 公式中吗？不，这代价实在是太大，无法应用于实时渲染中，一定是需要优化的。不过在那之前，让我们先来正式地了解一下 `反射率方程`。
+以这些理念为基础，迪士尼动画工作室对每个参数的添加进行了把关，最终得到了一个颜色参数 (baseColor) 和下面描述的十个标量参数：
 
-## 反射率方程
++ baseColor（固有色）：表面颜色，通常由纹理贴图提供。
++ subsurface（次表面）：使用次表面近似控制漫反射形状。
++ metallic（金属度）：金属（0 = 电介质，1 =金属）。这是两种不同模型之间的线性混合。金属模型没有漫反射成分，并且还具有等于基础色的着色入射镜面反射。
++ specular（镜面反射强度）：入射镜面反射量。用于取代折射率。
++ specularTint（镜面反射颜色）：对美术控制的让步，用于对基础色（basecolor）的入射镜面反射进行颜色控制。掠射镜面反射仍然是非彩色的。
++ roughness（粗糙度）：表面粗糙度，控制漫反射和镜面反射。
++ anisotropic（各向异性强度）：各向异性程度。用于控制镜面反射高光的纵横比。（0 =各向同性，1 =最大各向异性。）
++ sheen（光泽度）：一种额外的掠射分量（grazing component），主要用于布料。
++ sheenTint（光泽颜色）：对sheen（光泽度）的颜色控制。
++ clearcoat（清漆强度）：有特殊用途的第二个镜面波瓣（specular lobe）。
++ clearcoatGloss（清漆光泽度）：控制透明涂层光泽度，0 = “缎面（satin）”外观，1 = “光泽（gloss）”外观。
 
-让我们先看看没有展开的公式：
-
-![re1](reflectance-equation1.png)
-
-刚才我们提到的 BRDF 就是这个公式中的 Fr 的部分，除此之外，Li 和 Lo 分别指的是入射光和出射的辐射率，但在我们的代码中它被简化为了一个 RGB 颜色值；ωi 和 ωo 分别指的是入射光和出射光的立体角（可以简单理解为三维的弧度），但在这个积分式中，它的角度无穷趋近于 0 以至于可以 `简化` 为一个方向向量。既然是向量，那么 n⋅ωi 这个点乘式计算出来的就是法向量和入射光向量的夹角余弦值 cosθ，这和 Phone 模型中的计算是一样的。公式的最外围我们可以看到，这是一个积分式，累加了所有的入射光辐射率并最后输出出射光辐射率。
-
-> 值得注意的是，IBL 的光源是不能这样简化的，这就是为什么我们需要引入这个积分式，我们需要用它来计算一个半球面上的光源对一个片段的贡献。
-
-如果你对这个公式所涵盖的 `辐射度量学` 感兴趣的话，你可以去看看 LearnOpenGL 的 [原帖](https://learnopengl-cn.github.io/07%20PBR/01%20Theory/)。
-
-接下来再让我们看看展开后的公式：
-
-![re2](reflectance-equation2.png)
-
-刚才我们提到这里需要进行优化，最直接了当地我们就能想到 `空间换时间`，既然目前我们的环境贴图是不会变的，那么为什么不 `预计算` 一些结果供渲染使用呢？是的，不过我们应该预计算哪些结果呢？首先让我们先来研究并拆分一下这个公式：
-
-![re3](reflectance-equation3.png)
-
-我们在这里把 BRDF 的漫反射部分 kd 和镜面反射部分 ks 进行了拆分，接下来，我们便可以分开研究怎么给他们进行预计算。
-
-接下来的两部分都是关于预计算的内容，也就是说，这部分的计算应该存在于一个引擎的工具中，而我们在引擎渲染模块中读取这些结果进行渲染是相对比较简单的。
-
-## 漫反射辐照度
-
-我们来单独研究一下漫反射部分：
-
-![re-d1](re-diffuse1.png)
-
-这个被我们称为 lambertian 反射的公式的项是一个常数项（颜色 c、折射率 kd 和 π
-），不依赖于任何积分变量，所以我们可以把这个常数项移出积分式：
-
-![re-d2](re-diffuse2.png)
-
-这很好，现在这个积分式只依赖于 ωi 了，观察这个公式，我们就知道，接下来我们需要做的就是以原来的立方体贴图为输入，在每个采样方向上进行 `卷积` 运算，最后输出一个新的立方体贴图。为了进行这个卷积运算，我们需要对半球面 Ω 上的大量方向进行离散采样并对其辐射度取平均值计算出每个 ωo 的积分。值得注意的是，用来采样的这个半球要面向输出采样方向 ωo，这和 SSAO 中 `法向半球体` 的道理是一样的。
-
-![ibl-hs](ibl_hemisphere_sample.png)
-
-这个预计算的立方体贴图在每个采样方向 ωo 上储存积分结果，如果材质表面上有一个片段面朝 ωo 方向，那么它就采样对应的位置，获得所有能够击中它的所有间接漫反射光的总和。这样的立方体贴图被称为 `辐照度图`。
-
-> 我们这里假设片段 p 位于辐照度图的中心，不过这意味着场景中任一一个位置的物体表面映射出来的环境都是一样的，对于一张室内的环境贴图来说这会大大破坏实感。要解决这个问题，我们就需要使用 `反射探针` 的技术来解决它，它的原理是在场景中遍布很多个探针，探针会单独预计算一个范围内周围环境的辐照度图，当一个物体进入了这个探针的范围，那么它就采样这个探针对应的结果。这是一个令人兴奋的技术，因为它不仅可以让我们的环境贴图得到映射，还可以把探针周围的场景物体映射进去。
-
-我们先看看辐照度图大概长什么样，它看上去就像是模糊版本的环境贴图，这出自 LearnOpenGL：
-
-![ibl-irradiance](ibl_irradiance.png)
-
-那么，辐照度图的卷积计算应该如何进行呢？因为这是个积分公式，所以理论上我们可以从无数个方向上进行采样。不过，由于我们的运算都是 `离散` 的，所以在这里我们只能对有限数量的方向采样来近似求解，也就是在那个半球内均匀地间隔采样一个值，最后累加起来取平均值作为积分的结果。这种方法被我们称之为 `黎曼和`，我们离散部分的数量越多，其准确度越高。
-
-我们公式中的积分围绕着立体角 dω 旋转，而立体角积分是非常难处理的，所以我们改用球坐标 θ 和 Φ 来代替立体角。其中，θ 为倾斜角，类似于经度，采样范围为 0 ~ 0.5π；Φ 为航向角，类似于纬度，其采样范围为 0 ~ 2π。
-
-![ibl-si](ibl_spherical_integrate.png)
-
-根据这两个角，我们可以更新一下我们的公式：
-
-![re-d3](re-diffuse3.png)
-
-其中：
-
-![re-d4](re-diffuse4.png)
-
-这其中，cosθ 的作用还是和 Phone 一样，一束光越是垂直入射片段，那么它的贡献值越大。sinθ 又是做什么的呢？这是因为当采样区域朝向半球顶部会聚的时候，它的离散采样区域应该变小，这个变化可以在刚才的那张球体图片上看到，所以我们需要用 sinθ 来权衡这一点。
-
-接下来，求解积分需要我们在半球 Ω 内采集固定数量的离散样本求平均值，我们给求坐标轴指定离散样本数量 n1 和 n2 以求其黎曼和，积分式会转换为这样的离散版本：
-
-![re-d5](re-diffuse5.png)
-
-实现这个公式的 glsl 代码如下：
-
-```glsl
-vec3 irradiance = vec3(0.0);  
-
-vec3 up    = vec3(0.0, 1.0, 0.0);
-vec3 right = cross(up, normal);
-up         = cross(normal, right);
-
-float sampleDelta = 0.025;
-float nrSamples = 0.0; 
-for(float phi = 0.0; phi < 2.0 * PI; phi += sampleDelta)
-{
-    for(float theta = 0.0; theta < 0.5 * PI; theta += sampleDelta)
-    {
-        // spherical to cartesian (in tangent space)
-        vec3 tangentSample = vec3(sin(theta) * cos(phi),  sin(theta) * sin(phi), cos(theta));
-        // tangent space to world
-        vec3 sampleVec = tangentSample.x * right + tangentSample.y * up + tangentSample.z * N; 
-
-        irradiance += texture(environmentMap, sampleVec).rgb * cos(theta) * sin(theta);
-        nrSamples++;
-    }
-}
-irradiance = PI * irradiance * (1.0 / float(nrSamples));
-```
-
-这个流程完成之后，我们就能得到那张辐照度图。这样的贴图会以 samplerCube 之类的 uniform 类型输入到我们的着色器中，我们接下来就需要把原来 PBR 的代码换成这样：
-
-```glsl
-// vec3 ambient = vec3(0.03);
-vec3 ambient = texture(irradianceMap, N).rgb;
-```
-
-把这个结果纳入 PBR 的光照计算的代码像这样：
-
-```
-vec3 kS = SchlickFresnel(max(dot(H, V), 0.0), F0);
-vec3 kD = 1.0 - kS;
-vec3 irradiance = texture(irradianceMap, N).rgb;
-vec3 diffuse    = irradiance * albedo;
-vec3 ambient    = (kD * diffuse) * ao; 
-```
-
-不过值得注意的是菲涅尔方程中的半程向量 H，但是我们的辐照度图上的每个纹素的值都来自半球内的所有方向，没有一个确定的入射光方向向量来算出这个值。为了解决这个问题，IBL 的菲涅尔公式中我们用法向量 N 来代替 H，这也是为什么 kd 能作为一个常数项被拆出去。不过这样带来的一个新问题是，使用 N 计算出来的菲涅尔系数总是要大于原来的值，表面的反射率会相对较高，间接菲涅尔反射在粗糙非金属表面上看起来会过强。
-
-为了 `缓解` 这一点，我们可以在 Fresnel-Schlick 方程中加入粗糙度项：
-
-```glsl
-vec3 fresnelSchlickRoughness(float cosTheta, vec3 F0, float roughness)
-{
-    return F0 + (max(vec3(1.0 - roughness), F0) - F0) * pow(1.0 - cosTheta, 5.0);
-}
-```
-
-最后使用它来计算 IBL 的菲涅尔现象，这部分代码最终如下：
-
-```glsl
-vec3 kS = fresnelSchlickRoughness(max(dot(N, V), 0.0), F0, roughness); 
-vec3 kD = 1.0 - kS;
-vec3 irradiance = texture(irradianceMap, N).rgb;
-vec3 diffuse    = irradiance * albedo;
-vec3 ambient    = (kD * diffuse) * ao;
-```
-
-> 值得注意的是，我们的环境贴图是以 HDR 的文件格式输入进来的，我们会在另外一篇文章中详细介绍它。
-
-## 镜面反射辐照度
-
-正在整理...
+![disney-principled-brdf](articles/hszSoft/pbr-theory/disney-principled-brdf.png)
 
 # 引用文章
 
@@ -527,12 +409,6 @@ https://learnopengl-cn.github.io/07%20PBR/01%20Theory/
 
 LearnOpenGL PBR 光照
 https://learnopengl-cn.github.io/07%20PBR/02%20Lighting/
-
-LearnOpenGL IBL 漫反射辐照度
-https://learnopengl-cn.github.io/07%20PBR/03%20IBL/01%20Diffuse%20irradiance/
-
-LearnOpenGL IBL 镜面反射
-https://learnopengl-cn.github.io/07%20PBR/03%20IBL/02%20Specular%20IBL/
 
 菲涅尔方程（Fresnel Equation）
 https://zhuanlan.zhihu.com/p/375746359
@@ -543,5 +419,5 @@ https://zhuanlan.zhihu.com/p/137013668
 几何光学下的光线传播——光的反射、折射、菲涅耳公式
 https://zhuanlan.zhihu.com/p/480405520
 
-基于图像的光照 IBL
-https://huailiang.github.io/blog/2019/ibl/
+基于物理的渲染（PBR）白皮书 | 迪士尼原则的BRDF与BSDF相关总结
+https://cloud.tencent.com/developer/article/1427571
