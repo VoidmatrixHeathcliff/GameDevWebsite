@@ -11,6 +11,9 @@ tags:
 ---
 
 有关算法效率分析的笔记，包括Big-Oh表示法、Master定理和部分算法与数据结构的算法分析。
+<div style="text-align:center">
+<img src="/articles/zExNocs/笔记-ADE-算法数据结构和效率/cover.png" alt="封面" width="300">
+</div>
 
 <!-- More -->
 
