@@ -1,4 +1,5 @@
 ---
+title: C++类的继承
 date: 2024-06-21
 updated: 2024-06-21
 permlink: articles/yang12342/继承/
