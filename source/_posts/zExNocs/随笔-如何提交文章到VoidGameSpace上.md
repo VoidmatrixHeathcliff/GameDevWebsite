@@ -10,16 +10,15 @@ tags:
   - Git
 ---
 
-关于如何提交文章到VoidGameSpace论坛上的git教程。
+关于如果提交文章到VoidGameSpace论坛上的git教程。
 
 <!-- More -->
 
 ---
+
 本文章仅适用于[VoidGameSpace论坛](https://www.voidgame.space/)及其[GitHub库](https://github.com/VoidmatrixHeathcliff/GameDevWebsite)。
 
 该教程目前仅适用于**Windows**系统。
-
-[原博客传送面板](https://zexnocs.github.io/post/%E9%9A%8F%E7%AC%94%2F%E9%9A%8F%E7%AC%94-%E5%A6%82%E4%BD%95%E6%8F%90%E4%BA%A4%E6%96%87%E7%AB%A0%E5%88%B0VoidGameSpace%E4%B8%8A)
 
 # 如何使用github进行提交
 
@@ -80,9 +79,5 @@ git config --global user.email "你的邮箱"
 2. 添加所有文件到暂存区： `git add .`
 3. 提交添加的文件： `git commit -m "修改描述"`。为了养成好习惯，修改描述要有一定的准则。例如你修改文档可以写 `"docs(你的名字): 添加了xxx文章"`。具体准则可以自行搜索学习一下。
 4. push库：如果你使用的是新建的分支，使用`git push origin 分支名` 将新分支push到库中。如果你使用的是`main`分支或者是已经创建的库，那么使用 `git push` 将提交的内容push到库中。
- 
-## 七. 拉取申请
-找到自己fork的库，点击左上方 `Pull requests`按钮，进入页面点击右上方`New pull request`按钮。左边是合并的基库，右边是申请合并的库。在右边申请的库中选择自己的库和分支(如果没有创建分支就选择`main`)，然后填写一些申请描述即可。
-
-## 八. 等待审核
-~~建议留言压力v佬(bushi)~~
+5. 拉取申请：找到自己fork的库，点击左上方 `Pull requests`按钮，进入页面点击右上方`New pull request`按钮。左边是合并的基库，右边是申请合并的库。在右边申请的库中选择自己的库和分支(如果没有创建分支就选择`main`)，然后填写一些申请描述即可。
+6. 等待审核。

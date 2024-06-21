@@ -273,7 +273,7 @@ widgets:
         links:
             Voidmatrix.bilibili: https://space.bilibili.com/25864506
             Voidmatrix: https://www.voidmatrix.work/
-            zExNocs: https://zexnocs.github.io/
+            zExNocs: https://www.zexnocs.top/
             hszSoft: https://www.hszsoft.com/
             QiNuoTu.bilibili: https://space.bilibili.com/69720374
     # Recent posts widget configurations
@@ -357,10 +357,10 @@ plugins:
         site_id: 
     # Enable the KaTeX math typesetting support
     # https://katex.org/
-    katex: true
+    katex: false
     # Enable the MathJax math typesetting support
     # https://www.mathjax.org/
-    mathjax: false
+    mathjax: true
     # Enable the Outdated Browser plugin
     # http://outdatedbrowser.com/
     outdated_browser: false
