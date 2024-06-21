@@ -2,7 +2,7 @@
 title: C++类的继承
 date: 2024-06-21
 updated: 2024-06-21
-permlink: articles/yang12342/继承/
+permalink: articles/yang12342/继承/
 categories: yang12342
 tags: [c++语法]
 ---
@@ -169,9 +169,7 @@ public:
 base=base1；
 ~~~
 
-
-
-![](2024/06/21/C++继承/p1.png)
+<img src="p1.png" style="zoom:50%;" />
 
 #### 2.基类指针指向派生类（很重要）
 
@@ -179,7 +177,7 @@ base=base1；
 >
 > player指针指向豌豆和向日葵，scene指向不同的场景
 
-![](2024/06/21/C++继承/p2.png)
+<img src="p2.png" style="zoom:50%;" />
 
 基类的指针可以指向派生类，但是只能解释基类的成员，不能解释派生类新增的成员。
 
@@ -220,7 +218,7 @@ base &point=new base1;
 
 
 
-![](2024/06/21/C++继承/p3.png)
+<img src="p3.png" style="zoom: 50%;" />
 
 这样对基类引用的访问其实就是对派生类的基类的访问
 
