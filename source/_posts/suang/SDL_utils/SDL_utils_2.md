@@ -9,6 +9,12 @@ tags: [c++, SDL]
 
 这里是suang的**基于SDL的一些实用工具**的第二部分—— **Atlas** 和 **Animation**，以及对他们的加载、更新、渲染等操作。
 
+<div style="text-align:center">
+
+![兔兔这么可爱！](articles/suang/SDL_utils/rabbit_hole.png)
+
+</div>
+
 <!-- More -->
 
 ## 一、 Atlas
