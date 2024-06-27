@@ -2,7 +2,7 @@
 title: 使用GitHub Desktop在论坛中发表文章的方法及注意事项
 date: 2024-05-28
 update: 2024-06-04
-permalink: articles/suang/publish_article/
+permalink: articles/suang/publish_article/publish_article/
 categories: suang
 tags: [suang, 教程, 发表文章]
 ---

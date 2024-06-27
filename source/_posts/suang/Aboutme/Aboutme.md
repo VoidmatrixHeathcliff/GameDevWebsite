@@ -2,7 +2,7 @@
 title: suang
 date: 2024-05-28
 update: 2024-06-04
-permalink: articles/suang/Aboutme/
+permalink: articles/suang/Aboutme/Aboutme/
 categories: suang
 tags: [suang, 自我介绍]
 ---
