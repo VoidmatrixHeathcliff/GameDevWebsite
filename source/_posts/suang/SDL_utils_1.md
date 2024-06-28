@@ -39,75 +39,77 @@ public:
 随后重载二维向量的基本运算符号，定义模长，标准化等成员函数：
 
 ```cpp
-    Vector2 operator+(const Vector2& vec) const
-	{
-		return Vector2(x + vec.x, y + vec.y);
-	}
 
-	void operator+=(const Vector2& vec)
-	{
-		x += vec.x, y += vec.y;
-	}
+Vector2 operator+(const Vector2& vec) const
+{
+	return Vector2(x + vec.x, y + vec.y);
+}
 
-	Vector2 operator-(const Vector2& vec) const
-	{
-		return Vector2(x - vec.x, y - vec.y);
-	}
+void operator+=(const Vector2& vec)
+{
+	x += vec.x, y += vec.y;
+}
 
-	void operator-=(const Vector2& vec)
-	{
-		x -= vec.x, y -= vec.y;
-	}
+Vector2 operator-(const Vector2& vec) const
+{
+	return Vector2(x - vec.x, y - vec.y);
+}
 
-	double operator*(const Vector2& vec) const
-	{
-		return x * vec.x + y * vec.y;
-	}
+void operator-=(const Vector2& vec)
+{
+	x -= vec.x, y -= vec.y;
+}
 
-	Vector2 operator*(double val) const
-	{
-		return Vector2(x * val, y * val);
-	}
+double operator*(const Vector2& vec) const
+{
+	return x * vec.x + y * vec.y;
+}
 
-	void operator*=(double val)
-	{
-		x *= val, y *= val;
-	}
+Vector2 operator*(double val) const
+{
+	return Vector2(x * val, y * val);
+}
 
-	bool operator==(const Vector2& vec) const
-	{
-		return x == vec.x && y == vec.y;
-	}
+void operator*=(double val)
+{
+	x *= val, y *= val;
+}
 
-	bool operator>(const Vector2& vec) const
-	{
-		return length() > vec.length();
-	}
+bool operator==(const Vector2& vec) const
+{
+	return x == vec.x && y == vec.y;
+}
 
-	bool operator<(const Vector2& vec) const
-	{
-		return length() < vec.length();
-	}
+bool operator>(const Vector2& vec) const
+{
+	return length() > vec.length();
+}
 
-	double length() const
-	{
-		return sqrt(x * x + y * y);
-	}
+bool operator<(const Vector2& vec) const
+{
+	return length() < vec.length();
+}
 
-	Vector2 normalize() const
-	{
-		double len = length();
+double length() const
+{
+	return sqrt(x * x + y * y);
+}
 
-		if (len == 0)
-			return Vector2(0, 0);
+Vector2 normalize() const
+{
+	double len = length();
 
-		return Vector2(x / len, y / len);
-	}
+	if (len == 0)
+		return Vector2(0, 0);
 
-	bool approx_zero() const
-	{
-		return length() < 0.0001;
-	}
+	return Vector2(x / len, y / len);
+}
+
+bool approx_zero() const
+{
+	return length() < 0.0001;
+}
+
 ```
 
 至此，我们需要的的 **Vector2** 类已经基本实现，接下来便是 **Camera** 类的实现：
@@ -115,6 +117,7 @@ public:
 首先，在私有变量中定义 `Vector2 position` 变量，用于记录摄像机的位置，定义 `get_position` 函数用于获得摄像机的位置，定义 `reset` 函数用于重置摄像机的位置。
 
 ```cpp
+
 class Camera
 {
 public:
@@ -134,6 +137,7 @@ public:
 private:
     Vector2 position = { 0.0,0.0 };
 };
+
 ```
 
 我们的摄像机最最最基本的功能便已经实现，接下来便是如何使用摄像机来渲染所在位置的画面。
@@ -154,6 +158,7 @@ private:
 该函数接受五个参数：
 
 ```cpp
+
 void SDL_RenderCopy_Camera(
     const Camera& camera,       // 使用的摄像机
     SDL_Renderer* renderer,     // 渲染器
@@ -161,11 +166,13 @@ void SDL_RenderCopy_Camera(
     const SDL_Rect* srcrect,    // 选择的纹理区域
     const SDL_Rect* dstrect,    // 渲染目标的位置
 )
+
 ```
 
 我们需要考虑特殊情况，当 **dstrect** 为 **nullptr** 时，我们让目标位置为(-pos_camera.x, -pos_camera.y)，非特殊情况下，目标位置为(dstrect->x - pos_camera.x, dstrect->y - pos_camera.y)。由此，可得以下代码：
 
 ```cpp
+
 void SDL_RenderCopy_Camera(
 	const Camera& camera,
 	SDL_Renderer* renderer,
@@ -190,6 +197,7 @@ void SDL_RenderCopy_Camera(
 
 	SDL_RenderCopy(renderer, texture, srcrect, &rect);
 }
+
 ```
 
 以上，便是全部的 **Camera** 以及 **SDL_RenderCopy_Camera** 的基础操作。
@@ -197,6 +205,7 @@ void SDL_RenderCopy_Camera(
 
 **Timer** 类：
 ```cpp
+
 class Timer
 {
 public:
@@ -259,10 +268,12 @@ private:
 	std::function<void()> on_timeout;
 
 };
+
 ```
 
 **Camera** 类：
 ```cpp
+
 class Camera
 {
 public:
@@ -317,6 +328,7 @@ private:
 	bool is_shaking = false;		// 摄像机是否正在抖动
 	float shaking_strength = 0;		// 摄像机抖动幅度
 };
+
 ```
 
 by——suang
