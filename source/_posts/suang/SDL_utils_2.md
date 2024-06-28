@@ -2,7 +2,7 @@
 title: 基于SDL的一些实用工具（二）：Atlas类以及Animation类的实现
 date: 2024-06-27
 update: 2024-06-27
-permalink: articles/suang/SDL_utils/
+permalink: articles/suang/SDL_utils_2/
 categories: suang
 tags: [c++, SDL]
 ---
@@ -11,7 +11,7 @@ tags: [c++, SDL]
 
 <div style="text-align:center">
 
-![兔兔这么可爱！](articles/suang/SDL_utils/rabbit_hole.png)
+![兔兔这么可爱！](articles/suang/SDL_utils_2/rabbit_hole.png)
 
 </div>
 
