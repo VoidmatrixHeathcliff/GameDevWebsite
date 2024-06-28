@@ -2,7 +2,7 @@
 title: 基于SDL的一些实用工具（一）：Camera以及SDL_RenderCopy_Camera函数
 date: 2024-06-26
 update: 2024-06-26
-permalink: articles/suang/SDL_utils/SDL_utils_1/
+permalink: articles/suang/SDL_utils/
 categories: suang
 tags: [c++, SDL]
 ---
