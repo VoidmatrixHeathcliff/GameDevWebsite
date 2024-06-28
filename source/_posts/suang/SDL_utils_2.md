@@ -2,7 +2,7 @@
 title: 基于SDL的一些实用工具（二）：Atlas类以及Animation类的实现
 date: 2024-06-27
 update: 2024-06-27
-permalink: articles/suang/SDL_utils/SDL_utils_2/
+permalink: articles/suang/SDL_utils/
 categories: suang
 tags: [c++, SDL]
 ---
@@ -22,18 +22,20 @@ tags: [c++, SDL]
 首先，明确 **Atlas** 类需要的成员变量以及成员方法，我们需要一个容器去容纳我们所需要的 **Texture** ，定义私有变量 `std::vector<SDL_Texture*> tex_list`。在有了纹理的容器后，需要 `load_from_file` 函数来将所需的纹理加载到容器中，我们使用 `sprintf` 函数来实现对path模板进行操作，具体实现如下：
 
 ```cpp
-    void load_from_file(SDL_Renderer* renderer, std::string path_template, int num)
-	{
-		tex_list.clear();
-		tex_list.resize(num);
 
-		char path_file[256];
-		for (int i = 0; i < num; ++i)
-		{
-			sprintf(path_file, path_template.c_str(), i + 1);
-			tex_list[i] = IMG_LoadTexture(renderer, path_file);
-		}
+void load_from_file(SDL_Renderer* renderer, std::string path_template, int num)
+{
+	tex_list.clear();
+	tex_list.resize(num);
+
+	char path_file[256];
+	for (int i = 0; i < num; ++i)
+	{
+		sprintf(path_file, path_template.c_str(), i + 1);
+		tex_list[i] = IMG_LoadTexture(renderer, path_file);
 	}
+}
+
 ```
 
 随后，我们定义 `clear` 成员函数来清空容器，定义 `get_size` 成员函数来获取容器的大小， 定义 `get_texture` 成员函数来获取索引为 **idx** 的纹理的指针，定义 `add_texture` 成员函数来向容器中添加纹理。
@@ -41,6 +43,7 @@ tags: [c++, SDL]
 至此， **Atlas** 类便已经实现，完整代码如下：
 
 ```cpp
+
 class Atlas
 {
 public:
@@ -86,6 +89,7 @@ public:
 private:
 	std::vector<SDL_Texture*> tex_list;
 };
+
 ```
 
 ## 二、 Animation
@@ -99,6 +103,7 @@ private:
 完整实现如下：
 
 ```cpp
+
 class Animation
 {
 public:
@@ -165,6 +170,7 @@ private:
 	int width_frame = 0, height_frame = 0;
 
 };
+
 ```
 
 其中，**Camera** 类以及 **Timer** 类在上一期**基于SDL的一些实用工具**中已经有详细的实现方法，这里不再赘叙。
@@ -178,10 +184,12 @@ private:
 首先，我们在 **ResID** 枚举类中定义我们所要加载的图集类的ID，再为我们的存储 **Atlas** 类的哈希表定义一个别名 **AtlasPool** ，于是，在 `load_from_file`函数中，我们便可以像这样将 **Atlas** 类加载到 **atlas_pool** 中了：
 
 ```cpp
-    bool load_from_file(SDL_Renderer* renderer)
-    {
-        Atlas* atlas_menu_background = new Atlas();
-		atlas_menu_background->load_from_file(renderer, "resources/background/menu_background_%d.png", 10);
-		atlas_pool[ResID::Atlas_MenuBackground] = atlas_menu_background;
-    }
+
+bool load_from_file(SDL_Renderer* renderer)
+{
+    Atlas* atlas_menu_background = new Atlas();
+	atlas_menu_background->load_from_file(renderer, "resources/background/menu_background_%d.png", 10);
+	atlas_pool[ResID::Atlas_MenuBackground] = atlas_menu_background;
+}
+
 ```
