@@ -2,7 +2,7 @@
 title: c++输入输出
 date: 2024-07-13
 updated: 2024-07-13
-permalink: articles/yang12342/c++的输入与输出/
+permalink: articles/yang12342/cpp的输入与输出/
 categories: yang12342
 tags: [c++语法]
 ---
