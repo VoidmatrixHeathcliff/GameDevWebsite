@@ -7,7 +7,9 @@ categories: yang12342
 tags: [c++语法]
 ---
 
-> 学习对于这一节并没有教，当时看也只是模仿了上面的案例，不是很懂。现在在VoidMatrix的塔防教程中看到了这方面知识点相关，就想相对了解一下
+
+
+> 学校对于这一节并没有教，当时看也只是模仿了上面的案例，不是很懂。现在在VoidMatrix的塔防教程中看到了这方面知识点相关，就想相对了解一下
 
 ~~~CPP
 std::fstream file(path);			
@@ -383,9 +385,7 @@ int main()
  
 /*
 hello 
-string 
-and
-stringstream
+world
 */
 ~~~
 
