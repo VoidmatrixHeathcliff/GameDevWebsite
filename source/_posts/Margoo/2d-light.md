@@ -1,5 +1,7 @@
 ---
 title: 2D 游戏光照分析
+date: 2024-08-24
+updated: 2024-08-24
 author: Margoo
 permalink: articles/Margoo/2d-light/
 mathjax: true
