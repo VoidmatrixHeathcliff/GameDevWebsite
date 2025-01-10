@@ -7,11 +7,11 @@ categories: 数据结构
 tags: [数据结构, C++, 游戏开发]
 ---
 
-# What is a Quadtree and why are we using it
+# 什么是四叉树以及我们为什么使用它
 
-Within the context of game development, we often encounter situations where we need to detect whether two objects has collided. Throughing implementing quadtree, we can reduce the number of objects that need to be checked for collisions by focusing only on objects within the same or neighboring quadrants.
+在游戏开发的背景下，我们经常会遇到需要检测两个对象是否发生碰撞的情况。通过实现四叉树，我们可以减少需要检查碰撞的对象数量，只关注同一象限或相邻象限内的对象。
 
-Imaging that we have a 2D plane with several game objects on it. We define our game object in this class.
+想象一下，我们有一个包含多个游戏对象的二维平面。我们在这个类中定义我们的游戏对象。
 
 ```cpp
 class Object
@@ -23,7 +23,7 @@ class Object
 };
 ```
 
-Where `Point` is defined through this,
+其中 `Point` 类定义如下：
 
 ```cpp
 class Point
@@ -34,20 +34,20 @@ class Point
 };
 ```
 
-A quadtree is a tree structure in which each node has exactly four child node. Each node within the quadtree can be defined through this way:
+四叉树是一种树结构，其中每个节点都有四个子节点。每个节点可以通过以下方式定义：
 
 ```cpp
 class Quadtree
 {
     private:
-        // Define the area where the node is allocated
+        // 定义节点分配的区域
         Point top_left, bottom_right;
-        // Declare four child nodes
+        // 声明四个子节点
         Quadtree *top_left_child, *top_right_child, *bottom_left_child, *bottom_right_child;
-        // The object stored in this region
+        // 存储在该区域的对象
         Object *object;
 
-        // whether this node has any children
+        // 判断该节点是否有子节点
         bool hasChildren();
     public:
         Quadtree(Point _top_left, Point _bottom_right):\
@@ -57,34 +57,33 @@ class Quadtree
 
         ~Quadtree();
 
-        // insert an object into the quadtree
+        // 向四叉树中插入对象
         void insert(Object *object);
-        // search for an object in the quadtree
+        // 在四叉树中搜索对象
         Object* search(Point point);
 
-        // whether the point is in a specific child node
+        // 判断点是否在特定子节点中
         bool in_top_left_child(Point point);
         bool in_top_right_child(Point point);
         bool in_bottom_left_child(Point point);
         bool in_bottom_right_child(Point point);
 
-        // whether the point is in the boundary of the node
+        // 判断点是否在节点的边界内
         bool in_boundary(Point point);
 };
 ```
 
-We have created an immense class here. Don't worry, I'll eventually explain them in detail.
+我们在这里创建了一个庞大的类。别担心，我会逐步详细解释它们。
 
-To define a rectangle region, the coordinate of its top left and bottom right corner is required. We use two points to define the area where the node is allocated to.
+要定义一个矩形区域，需要其左上角和右下角的坐标。我们使用两个点来定义节点分配的区域。
 
-To define the four child nodes, we use four pointers to point to the child nodes.
+为了定义四个子节点，我们使用四个指针指向子节点。
 
-Similarly, to define the object stored in this region, we use a pointer to point to the object.
+同样，为了定义存储在该区域的对象，我们使用一个指针指向该对象。
 
-Here is the implementation of some assisting functions.
+以下是一些辅助函数的实现。
 
 ```cpp
-
 bool Quadtree::hasChildren()
 {
     return top_left_child != NULL;
@@ -116,9 +115,9 @@ bool Quadtree::in_boundary(Point point)
 }
 ```
 
-BTW, we create four children at same time. Therefore, when we need to determine if a node has children, we can check any of its child and see if it exist.
+顺便说一下，因为我们是同时创建四个子节点，所以，当我们需要确定一个节点是否有子节点时，我们可以检查它的任意一个子节点是否存在。
 
-And the destructor to free up the memory.
+以及创建一个析构函数用于释放内存。
 
 ```cpp
 Quadtree::~Quadtree()
@@ -131,17 +130,17 @@ Quadtree::~Quadtree()
 }
 ```
 
-Through recursively partition a 2-dimensional plane into four quadrants, we can build a quadtree quite easily.
+通过递归地将二维平面划分为四个象限，我们可以很容易地构建一个四叉树。
 
 ```cpp
 void Quadtree::insert(Object* object)
 {
-    // If the object is not in the boundary of the quadtree
+    // 如果对象不在四叉树的边界内
     if (!in_boundary(object->position))
         return;
 
-    // If the object is in a unit node of quadtree
-    // that is, the node cannot be partitioned anymore
+    // 如果对象在四叉树的单元节点中
+    // 即节点不能再被划分
     if (top_left.x == bottom_right.x && top_left.y == bottom_right.y)
     {
         if (this->object == NULL)
@@ -149,10 +148,10 @@ void Quadtree::insert(Object* object)
         return;
     }
 
-    // If this node has not been partitioned yet
+    // 如果该节点尚未被划分
     if (!hasChildren())
     {
-        // Partition the node and create 4 children
+        // 划分节点并创建4个子节点
         int x = (top_left.x + bottom_right.x) / 2;
         int y = (top_left.y + bottom_right.y) / 2;
         top_left_child = new Quadtree(top_left, Point(x, y));
@@ -161,7 +160,7 @@ void Quadtree::insert(Object* object)
         bottom_right_child = new Quadtree(Point(x + 1, y + 1), bottom_right);
     }
 
-    // Insert the object into the corresponding child
+    // 将对象插入到相应的子节点中
     if (in_top_left_child(object->position))
         top_left_child->insert(object);
     else if (in_top_right_child(object->position))
@@ -173,27 +172,27 @@ void Quadtree::insert(Object* object)
 }
 ```
 
-To insert an object into the quadtree, we should ensure that the object is within the boundary of the quadtree.
+要将对象插入四叉树，我们应确保对象在四叉树的边界内。
 
-Additionaly, if the object is already in a unit node of the quadtree, we simply store the object into this node.
+此外，如果对象已经在四叉树的单元节点中，我们只需将对象存储到该节点中。
 
-If the node has not been partitioned yet, we need to partition the node and create four children. Then we insert the object into the corresponding child.
+如果节点尚未被划分，我们需要划分节点并创建四个子节点。然后我们将对象插入到相应的子节点中。
 
-To search for an object in the quadtree, we recursively search for the region where the object is located.
+要在四叉树中搜索对象，我们递归地搜索对象所在的区域。
 
 ```cpp
 Object* Quadtree::search(Point point)
 {
-    // If the point is not in the boundary of the quadtree
+    // 如果点不在四叉树的边界内
     if (!in_boundary(point))
         return NULL;
 
-    // If the point is in a unit node of quadtree
-    // that is, the node cannot be partitioned anymore
+    // 如果点在四叉树的单元节点中
+    // 即节点不能再被划分
     if (top_left.x == bottom_right.x && top_left.y == bottom_right.y)
         return object;
 
-    // If this node has been partitioned
+    // 如果该节点已经被划分
     if (hasChildren())
     {
         if (in_top_left_child(point))
@@ -210,17 +209,17 @@ Object* Quadtree::search(Point point)
 }
 ```
 
-The logic for searching is simple: When we insert an object into the tree, we keep partitioning the tree until we reach a unit node. Therefore, when we search for an object in the tree, we keep searching until we reach a unit node.
+搜索的逻辑很简单：当我们将对象插入树中时，我们不断划分树，直到到达单元节点。因此，当我们在树中搜索对象时，我们不断搜索，直到到达单元节点。
 
-Let us test the quadtree with some instances.
+让我们用一些实例来测试四叉树。
 
 ```cpp
 int main()
 {
-    // Build a 8x8 quadtree
+    // 构建一个8x8的四叉树
     Quadtree qt(Point(0, 0), Point(8, 8));
 
-    // Create and Insert three objects into the quadtree
+    // 创建并插入三个对象到四叉树中
     Object obj1(Point(1, 1), "Object 1");
     Object obj2(Point(2, 5), "Object 2");
     Object obj3(Point(7, 7), "Object 3");
@@ -229,11 +228,11 @@ int main()
     qt.insert(&obj2);
     qt.insert(&obj3);
 
-    // Search for the objects in the quadtree
+    // 在四叉树中搜索对象
     Object* result1 = qt.search(Point(1, 1));
     Object* result2 = qt.search(Point(2, 5));
     Object* result3 = qt.search(Point(7, 7));
-    // search for a point that is not in the quadtree
+    // 搜索一个不在四叉树中的点
     Object* result4 = qt.search(Point(3, 3));
 
     std::cout << "Test Insert and Search:" << std::endl;
@@ -245,7 +244,7 @@ int main()
 }
 ```
 
-The result should be:
+结果如下：
 
 ```bash
 Test Insert and Search:
@@ -255,7 +254,7 @@ Search (7, 7): Object 3
 Search (3, 3): NULL
 ```
 
-Finally, the complete code is,
+完整代码如下
 
 ```cpp
 #include <iostream>
