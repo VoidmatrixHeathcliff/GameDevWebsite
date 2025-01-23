@@ -5,6 +5,7 @@ updated: 2024-08-24
 author: Margoo
 permalink: articles/Margoo/2d-light/
 mathjax: true
+categories: Margoo
 tags: [Math, Computer Graphics, Lighting]
 ---
 

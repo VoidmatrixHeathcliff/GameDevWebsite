@@ -3,7 +3,7 @@ title: 四叉树学习笔记
 date: 2025-01-10
 updated: 2025-01-10
 permalink: articles/XZDXRZ/quadtree_nodes/
-categories: 数据结构
+categories: XZDXRZ
 author: XZDXRZ
 tags: [数据结构, C++, 游戏开发]
 ---
