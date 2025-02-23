@@ -1,7 +1,7 @@
 ---
 title: 让SDL程序不使用控制台
 date: 2025-02-12
-updated: 2025-02-12
+updated: 2025-02-23
 permalink: articles/YeMinglv/SDL_no_console/
 categories: YeMinglv
 tags: [SDL2, 控制台]
