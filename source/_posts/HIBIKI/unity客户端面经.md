@@ -1,10 +1,10 @@
 ---
-title:二面放一起了
-date:2025-02-27
-updated:2025-02-27
-permalink:articles/HIBIKI/Interview/
-categories:HIBIKI
-tags:[面经]
+title: 二面放一起了
+date: 2025-02-27
+updated: 2025-02-27
+permalink: articles/HIBIKI/Interview/
+categories: HIBIKI
+tags: [面经]
 ---
 杭州一家小公司的两次面试，第一次15分钟就通过，第二次拷打了半小时
 <!-- More -->
