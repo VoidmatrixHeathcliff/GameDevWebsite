@@ -7,8 +7,6 @@ categories: Flaaax
 tags: [ECS, 游戏开发, C++]
 ---
 
-<!-- More -->
-
 ## 0.前言
 因受到entt启发，以学习为目的，我仿照entt制作了一个纯头文件ecs库，目前许多功能还在实验中。其大部分接口与逻辑与entt相同，但在底层实现上一些差别。该博客主要是对ECS的介绍，对MyECS库的介绍并附带一些对entt的一些思考之类的。最后本人水平知识有限，请大佬轻喷（doge），非常欢迎大家来交流学习。
 
@@ -18,6 +16,8 @@ tags: [ECS, 游戏开发, C++]
 MyEcs:  &emsp;https://github.com/Flaaax/MyECS
 
 entt:   &emsp;&emsp;https://github.com/skypjack/entt
+
+<!-- More -->
 
 ## 1.什么是ECS？
 *ECS*是一种游戏架构，全称*Entity Component System*（实体组件系统），通常用于游戏开发，并显著区别于经典的 *OOP*(*面向对象编程*) 架构。其定义分为三个部分Entity，Component和System。
