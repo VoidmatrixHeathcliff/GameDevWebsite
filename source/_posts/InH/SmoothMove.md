@@ -1,25 +1,24 @@
 ---
-title: 如何让2D角色更丝滑的移动(C++/SDL2)开罐即食
+title: 如何让2D角色丝滑的移动(C++/SDL2)开罐即食
 date: 2025-08-10
 update: 2025-08-10
-permalink: articles/InH/如何让2D角色更丝滑的移动(C++/SDL2)开罐即食/
+permalink: articles/InH/SmoothMove/
 categories: InH
 tags: [学习心得]
 ---
 
 <div align="center">
 
-![](articles/InH/picture/cov.png)
+![](articles/InH/SmoothMove/cov.png)
 
 </div>
-
 本文你将会见到四种常见的让2D角色实现平滑移动的方式，用最简明的代码带来最佳的手感体验！
 
 <!-- More --> 
 
-## 如何让2D角色更丝滑的移动(C++/SDL2)开罐即食
+## 前言
 
-​	你是否觉得你的游戏角色移动的时候很死板，按住就走，松开就停，非常的死板没有活力，那就跟我一起从velocity的角度切入来看看有哪些有趣的算法可以优化我们的操作手感，让角色移动变的生动有趣~
+​   你是否觉得你的游戏角色移动的时候很死板，按住就走，松开就停，非常的死板没有活力，那就跟我一起从velocity的角度切入来看看有哪些有趣的算法可以优化我们的操作手感，让角色移动变的生动有趣~
 
 #### 1.线性逼近（Lerp/Approach）
 
