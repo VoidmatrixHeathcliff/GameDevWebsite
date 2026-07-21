@@ -1,7 +1,7 @@
 ---
 title: 如何让2D角色丝滑的移动(C++/SDL2)开罐即食
 date: 2025-02-10
-update: 2025-02-10
+updated: 2025-02-10
 permalink: articles/InH/SmoothMove/
 categories: InH
 tags: [学习心得]

@@ -1,7 +1,7 @@
 ---
 title: 程序化地形生成与侵蚀模拟
 date: 2025-11-28
-update: 2025-11-28
+updated: 2025-11-28
 permalink: articles/InH/GodotTerrainErosionStory/
 categories: InH
 tags: ["Godot", "GDScript", "FastNoiseLite", "SurfaceTool", "GridMap", "程序化地形", "侵蚀模拟"]

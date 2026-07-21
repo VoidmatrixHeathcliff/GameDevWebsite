@@ -1,7 +1,7 @@
 ---
 title: 蒙版生成地图碰撞与分层状态机
 date: 2025-05-12
-update: 2025-05-12
+updated: 2025-05-12
 permalink: articles/InH/Celeste/
 categories: InH
 tags: ["C++", "SDL2", "平台跳跃", "地图碰撞", "HSM", "角色控制"]
