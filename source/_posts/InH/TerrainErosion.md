@@ -9,7 +9,7 @@ tags: ["Godot", "GDScript", "FastNoiseLite", "SurfaceTool", "GridMap", "程序�
 
 <div align="center">
 
-![1](/articles/InH/GodotTerrainErosionStory/1.png)
+![方块地形填充示例](/articles/InH/GodotTerrainErosionStory/1.png)
 
 </div>
 
@@ -24,7 +24,7 @@ tags: ["Godot", "GDScript", "FastNoiseLite", "SurfaceTool", "GridMap", "程序�
 
 <div align="center">
 
-![](/articles/InH/GodotTerrainErosionStory/2.png)
+![柏林噪声示例图](/articles/InH/GodotTerrainErosionStory/2.png)
 
 </div>
 
@@ -45,7 +45,7 @@ var height = noise_val * noise_strength
 
 <div align="center">
 
-![6](/articles/InH/GodotTerrainErosionStory/6.png)
+![fBM示例图](/articles/InH/GodotTerrainErosionStory/6.png)
 
 </div>
 
@@ -120,7 +120,7 @@ func apply_growth(t: float):
 
 <div align="center">
 
-![3](/articles/InH/GodotTerrainErosionStory/3.png)
+![裸方块地形示例](/articles/InH/GodotTerrainErosionStory/3.png)
 
 </div>
 
@@ -182,7 +182,7 @@ func apply_growth(t: float):
 
 <div align="center">
 
-![1](/articles/InH/GodotTerrainErosionStory/1.png)
+![方块地形填充示例](/articles/InH/GodotTerrainErosionStory/1.png)
 
 </div>
 
@@ -238,7 +238,7 @@ if top_terrain_id >= Terrain.GRASS_1 and top_terrain_id <= Terrain.GRASS_6:
 
 <div align="center">
 
-![4](/articles/InH/GodotTerrainErosionStory/4.png)
+![热力侵蚀示例](/articles/InH/GodotTerrainErosionStory/4.png)
 
 </div>
 
@@ -280,7 +280,7 @@ func apply_thermal_erosion(height_map: Array[PackedFloat32Array]):
 
 <div align="center">
 
-![5](/articles/InH/GodotTerrainErosionStory/5.png)
+![水力侵蚀示例](/articles/InH/GodotTerrainErosionStory/5.png)
 
 </div>
 

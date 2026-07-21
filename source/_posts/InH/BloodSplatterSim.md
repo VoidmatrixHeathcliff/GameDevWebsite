@@ -9,7 +9,7 @@ tags: ["Godot", "GDScript", "SpriteFrames", "ShaderMaterial", "屏幕空间", "�
 
 <div align="center">
 
-![1](/articles/InH/GodotBloodMaterialStory/1.png)
+![复刻的血液喷溅效果图](/articles/InH/GodotBloodMaterialStory/1.png)
 
 </div>
 
@@ -23,7 +23,7 @@ tags: ["Godot", "GDScript", "SpriteFrames", "ShaderMaterial", "屏幕空间", "�
 
 <div align="center">
 
-![2](/articles/InH/GodotBloodMaterialStory/2.png)
+![不同角度的小型血液喷溅纹理](/articles/InH/GodotBloodMaterialStory/2.png)
 
 </div>
 
@@ -41,7 +41,7 @@ decal_composite.gdshader -> 根据背景亮度融合
 
 <div align="center">
 
-![3](/articles/InH/GodotBloodMaterialStory/3.png)
+![大型血浆飞溅纹理](/articles/InH/GodotBloodMaterialStory/3.png)
 
 </div>
 
@@ -87,7 +87,7 @@ func _on_blood_spawn_timer_timeout() -> void:
 
 <div align="center">
 
-![4](/articles/InH/GodotBloodMaterialStory/4.png)
+![管理器所含场景](/articles/InH/GodotBloodMaterialStory/4.png)
 
 </div>
 
@@ -111,7 +111,7 @@ func spawn_effect(spawn_position: Vector2, target_direction: Vector2, gravity_sc
 
 <div align="center">
 
-![7](/articles/InH/GodotBloodMaterialStory/7.png)
+![不同角度的小型血液喷溅纹理](/articles/InH/GodotBloodMaterialStory/7.png)
 
 </div>
 
@@ -206,7 +206,7 @@ func _on_particle_request_stamp(snapshot_data: Dictionary):
 
 <div align="center">
 
-![5](/articles/InH/GodotBloodMaterialStory/5.png)
+![血液溶解Shader](/articles/InH/GodotBloodMaterialStory/5.png)
 
 </div>
 
@@ -216,7 +216,7 @@ func _on_particle_request_stamp(snapshot_data: Dictionary):
 
 <div align="center">
 
-![6](/articles/InH/GodotBloodMaterialStory/6.png)
+![混合Shader](/articles/InH/GodotBloodMaterialStory/6.png)
 
 </div>
 

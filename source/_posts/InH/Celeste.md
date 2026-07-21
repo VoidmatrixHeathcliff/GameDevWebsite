@@ -9,7 +9,7 @@ tags: ["C++", "SDL2", "平台跳跃", "地图碰撞", "HSM", "角色控制"]
 
 <div align="center">
 
-![1](/articles/InH/Celeste/1.png)
+![游戏截图1](/articles/InH/Celeste/1.png)
 
 </div>
 
@@ -21,7 +21,7 @@ tags: ["C++", "SDL2", "平台跳跃", "地图碰撞", "HSM", "角色控制"]
 
 <div align="center">
 
-![2](/articles/InH/Celeste/6.png)
+![BMP与PNG](/articles/InH/Celeste/6.png)
 
 </div>
 
@@ -78,7 +78,7 @@ void l0::on_enter() {
 
 <div align="center">
 
-![2](/articles/InH/Celeste/2.png)
+![游戏截图2](/articles/InH/Celeste/2.png)
 
 </div>
 
@@ -90,7 +90,7 @@ void l0::on_enter() {
 
 <div align="center">
 
-![1](/articles/InH/Celeste/7.png)
+![BMP蒙版示例](/articles/InH/Celeste/7.png)
 
 </div>
 
@@ -346,7 +346,7 @@ HSM 的重点不是状态数量，而是优先级。这个项目里冲刺优先�
 
 <div align="center">
 
-![3](/articles/InH/Celeste/3.png)
+![游戏截图3](/articles/InH/Celeste/3.png)
 
 </div>
 
@@ -492,7 +492,7 @@ m_state_exits["Dashing"] = [&](float delta) {
 
 <div align="center">
 
-![4](/articles/InH/Celeste/4.png)
+![游戏截图4](/articles/InH/Celeste/4.png)
 
 </div>
 
@@ -563,7 +563,7 @@ m_state_exits["Crouch"] = [&](float delta) {
 
 <div align="center">
 
-![5](/articles/InH/Celeste/5.png)
+![游戏截图5](/articles/InH/Celeste/5.png)
 
 </div>
 

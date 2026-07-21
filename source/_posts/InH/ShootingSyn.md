@@ -9,7 +9,7 @@ tags: ["Godot", "GDScript", "ENetMultiplayerPeer", "RPC", "网络同步", "客�
 
 <div align="center">
 
-![1](/articles/InH/NetworkProjectileSyncStory/1.png)
+![项目截图1](/articles/InH/NetworkProjectileSyncStory/1.png)
 
 </div>
 
@@ -22,7 +22,7 @@ tags: ["Godot", "GDScript", "ENetMultiplayerPeer", "RPC", "网络同步", "客�
 
 <div align="center">
 
-![2](/articles/InH/NetworkProjectileSyncStory/2.png)
+![项目截图2](/articles/InH/NetworkProjectileSyncStory/2.png)
 
 </div>
 
@@ -48,13 +48,13 @@ func _initiate_fire():
 
 <div align="center">
 
-![3](/articles/InH/NetworkProjectileSyncStory/3.png)
+![策略模式](/articles/InH/NetworkProjectileSyncStory/3.png)
 
 </div>
 
 <div align="center">
 
-![4](/articles/InH/NetworkProjectileSyncStory/4.png)
+![武器](/articles/InH/NetworkProjectileSyncStory/4.png)
 
 </div>
 
@@ -95,7 +95,7 @@ func delay_call(duration_ms: float, callback: Callable):
 
 <div align="center">
 
-![5](/articles/InH/NetworkProjectileSyncStory/2.png)
+![哑客户端模式](/articles/InH/NetworkProjectileSyncStory/2.png)
 
 </div>
 
@@ -103,7 +103,7 @@ func delay_call(duration_ms: float, callback: Callable):
 
 <div align="center">
 
-![5](/articles/InH/NetworkProjectileSyncStory/5.png)
+![预测模式](/articles/InH/NetworkProjectileSyncStory/5.png)
 
 </div>
 
@@ -111,7 +111,7 @@ func delay_call(duration_ms: float, callback: Callable):
 
 <div align="center">
 
-![6](/articles/InH/NetworkProjectileSyncStory/6.png)
+![射线检测模式](/articles/InH/NetworkProjectileSyncStory/6.png)
 
 </div>
 
@@ -177,7 +177,7 @@ else:
 
 <div align="center">
 
-![7](/articles/InH/NetworkProjectileSyncStory/7.png)
+![火箭筒预测模式](/articles/InH/NetworkProjectileSyncStory/7.png)
 
 </div>
 
