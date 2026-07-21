@@ -1,7 +1,7 @@
 ---
 title: 联机射击中开火与命中的RPC同步流程
 date: 2026-01-16
-update: 2026-01-16
+updated: 2026-01-16
 permalink: articles/InH/NetworkProjectileSyncStory/
 categories: InH
 tags: ["Godot", "GDScript", "ENetMultiplayerPeer", "RPC", "网络同步", "客户端预测", "Hitscan"]

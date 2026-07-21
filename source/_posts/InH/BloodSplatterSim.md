@@ -1,7 +1,7 @@
 ---
 title: 血液喷溅特效模拟
 date: 2025-09-27
-update: 2025-09-27
+updated: 2025-09-27
 permalink: articles/InH/GodotBloodMaterialStory/
 categories: InH
 tags: ["Godot", "GDScript", "SpriteFrames", "ShaderMaterial", "屏幕空间", "贴花", "特效系统"]
