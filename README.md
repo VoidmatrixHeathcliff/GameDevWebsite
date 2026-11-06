@@ -8,6 +8,11 @@
             https://www.voidgame.space
         </a>
     </p>
+    <p align="center">更多游戏开发视频课程：
+        <a href="https://space.bilibili.com/25864506/pugv">
+            https://space.bilibili.com/25864506/pugv
+        </a>
+    </p>
     </br>
 </div>
 
